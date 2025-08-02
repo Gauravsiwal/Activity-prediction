@@ -23,14 +23,13 @@ def prediction(inp_list):
 
 def main():
     st.title('ACTIVITY PREDICTION FROM SENSOR DATA')
-    st.subheader('''This application will predict the on going avtivity of the basis of sensor data provided. Fill the respective 
-    fields it will be predicted.''')
+    st.subheader('''This application will predict the on going avtivity of the basis of sensor data provided. Fill the respective fields it will be predicted.''')
     st.image('image.webp')
 
-    rfid = st.dropbox('Enter the RFID configuration settings',['Config 1 (4 Sensors)','Config 2 (3 Sensors)'])
+    rfid = st.selectbox('Enter the RFID configuration settings',['Config 1 (4 Sensors)','Config 2 (3 Sensors)'])
     rfid_e = (lambda x: 3 if x=='Config 2 (3 Sensors)' else 4)(rfid)
 
-    ant_ID = st.dropbox('Select the Antena ID',[1,2,3,4])
+    ant_ID = st.selectbox('Select the Antena ID',[1,2,3,4])
     rssi = st.text_input('Enter the received signal strength indicator (RSSI)')
     accv = st.text_input('Enter the vertical acceleration data from sensor')
     accf = st.text_input('Enter the frontal acceleration data from sensor')
@@ -45,3 +44,4 @@ def main():
 
 if __name__=='__main__':
     main()
+
